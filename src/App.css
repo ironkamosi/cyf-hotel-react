@@ -55,3 +55,12 @@ tr {
 .card {
   width: 18rem;
 }
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer-container ul {
+  list-style: none;
+}

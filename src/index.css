@@ -24,3 +24,10 @@ body {
 .search-row input {
   margin-right: 10px;
 }
+
+#HotelLogo {
+  height: 5rem;
+  width: 5rem;
+  padding: 0.3rem;
+  margin: 0.4rem;
+}
