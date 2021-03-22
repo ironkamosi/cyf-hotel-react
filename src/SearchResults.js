@@ -19,8 +19,10 @@ const SearchResults = props => {
             <th scope="col">NumberOfDays</th>
           </tr>
         </thead>
-        <TableBody results={props.results} />
-      </table>{" "}
+        {props.results.map((element, index) => {
+          return <TableBody key={index} element={element} />;
+        })}
+      </table>
     </div>
   );
 };
