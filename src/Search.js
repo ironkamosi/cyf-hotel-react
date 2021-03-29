@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchButton from "./SearchButton";
 
-const Search = () => {
+const Search = props => {
   const [searchInput, setSearchInput] = useState("");
 
   const handleSearchInput = event => {
@@ -11,7 +11,8 @@ const Search = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(searchInput);
+    props.search(searchInput); // calling the search function here passing it from booking
+    // console.log(searchInput);
   }
   return (
     <div className="search">

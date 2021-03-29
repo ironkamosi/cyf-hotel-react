@@ -4,7 +4,7 @@ import diff from "moment";
 
 // table body
 const TableBody = props => {
-  console.log("table", props);
+  // console.log("table", props);
 
   const element = props.element;
 

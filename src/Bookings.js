@@ -10,13 +10,25 @@ const Bookings = () => {
     fetch(`https://cyf-react.glitch.me`)
       .then(result => result.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setBookings(data);
       });
   }, []); // Always remember to put an empty array here!
+
   const search = searchVal => {
-    console.info("TO DO!", searchVal);
+    // console.info("TO DO!", searchVal);
+    // console.log(bookings);
+
+    const filterData = bookings.filter(
+      booking =>
+        booking.firstName === searchVal || booking.surname === searchVal
+    );
+    console.log(filterData);
+    setBookings(filterData);
   };
+
+  // console.log("test bookings", bookings);
+
   return (
     <div className="App-content">
       <div className="container">
