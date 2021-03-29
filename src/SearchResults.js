@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import TableBody from "./TableBody";
+import CustomerProfile from "./CustomerProfile";
+
 // table head
 const SearchResults = props => {
   // console.log("p results",props.results)
@@ -17,6 +19,7 @@ const SearchResults = props => {
             <th scope="col">checkInDate</th>
             <th scope="col">checkOutDate</th>
             <th scope="col">NumberOfDays</th>
+            <th scope="col">ShowProfile</th>
           </tr>
         </thead>
         {props.results.map((element, index) => {
