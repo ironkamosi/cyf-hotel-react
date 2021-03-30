@@ -5,16 +5,38 @@ import SearchResults from "./SearchResults.js";
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
-  const [foundData, setFoundData] = useState(false);
-
-  useEffect(() => {
-    fetch(`https://cyf-react.glitch.me/delayed`)
-      .then(result => result.json())
-      .then(data => {
+  // const[error,setError] = useState(false)
+  // const [foundData, setFoundData] = useState(false);
+  /*if (result.ok) {
+       .then(data => {
         // console.log(data);
         setBookings(data);
-      });
-  }, []); // Always remember to put an empty array here!
+      }); 
+      }
+       */
+
+  // useEffect(() => {
+  //   fetch(`https://cyf-react.glitch.me/delayed`)
+  //     .then(result => result.json())
+  //     .then(data => {
+  //       // console.log(data);
+  //       setBookings(data);
+  //     });
+  // }, []); // Always remember to put an empty array here!
+
+  const [error, setError] = useState();
+  useEffect(() => {
+    fetch("https://cyf-react.glitch.me/error")
+      .then(res => {
+        if (res.status == 200) {
+          return res.json();
+        } else {
+          throw new Error("Something went wrong");
+        }
+      })
+      .then(data => setBookings(data))
+      .catch(error => setError(error.message));
+  }, []);
   /*
 ? foundData === true{
   setF
@@ -33,6 +55,9 @@ const Bookings = () => {
     setBookings(filterData);
   };
 
+  if (error) {
+    return <h2>Error {error}</h2>;
+  }
   // console.log("test bookings", bookings);
 
   return bookings.length ? (
@@ -40,6 +65,7 @@ const Bookings = () => {
       <div className="container">
         <Search search={search} />
         <SearchResults results={bookings} />
+        {/* {error ? <h2 >{error}</h2> : ""} */}
       </div>
     </div>
   ) : (
@@ -47,4 +73,21 @@ const Bookings = () => {
   );
 };
 
+//   return (
+//     <div className="App-content">
+//       {bookings ? (
+//         <div className="container">
+//           <Search search={search} />
+//           {!loading ? (
+//             <SearchResults results={bookings} />
+//           ) : (
+//             <span>Loading... Please wait</span>
+//           )}
+//         </div>
+//       ) : (
+//         <span>{error}</span>
+//       )}
+//     </div>
+//   );
+// }
 export default Bookings;
