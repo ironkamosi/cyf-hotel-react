@@ -11,13 +11,13 @@ const CustomerProfile = props => {
     fetch(`https://cyf-react.glitch.me/customers/${props.clientId}`)
       .then(result => result.json())
       .then(data => {
-        console.log("fetch", data);
+        // console.log("fetch", data);
         setClientId(data.id);
         setClientEmail(data.email);
         setVip(data.vip);
         setPhoneNumber(data.phoneNumber);
       });
-  }, [props.clientId]); // Always remember to put an empty array here!
+  }, [props.clientId]);
 
   // console.log("Customer props", props)
   return (
