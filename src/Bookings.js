@@ -5,15 +5,21 @@ import SearchResults from "./SearchResults.js";
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
+  const [foundData, setFoundData] = useState(false);
 
   useEffect(() => {
-    fetch(`https://cyf-react.glitch.me`)
+    fetch(`https://cyf-react.glitch.me/delayed`)
       .then(result => result.json())
       .then(data => {
         // console.log(data);
         setBookings(data);
       });
   }, []); // Always remember to put an empty array here!
+  /*
+? foundData === true{
+  setF
+}
+*/
 
   const search = searchVal => {
     // console.info("TO DO!", searchVal);
@@ -29,13 +35,15 @@ const Bookings = () => {
 
   // console.log("test bookings", bookings);
 
-  return (
+  return bookings.length ? (
     <div className="App-content">
       <div className="container">
         <Search search={search} />
         <SearchResults results={bookings} />
       </div>
     </div>
+  ) : (
+    <h2>Loading </h2>
   );
 };
 
