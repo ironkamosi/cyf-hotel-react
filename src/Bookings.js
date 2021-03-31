@@ -56,7 +56,12 @@ const Bookings = () => {
   };
 
   if (error) {
-    return <h2>Error {error}</h2>;
+    return (
+      <div>
+        {" "}
+        <h2> Error {error}</h2>
+      </div>
+    );
   }
   // console.log("test bookings", bookings);
 
