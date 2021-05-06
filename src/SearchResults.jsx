@@ -9,7 +9,6 @@ const SearchResults = props => {
 
   const buttonId = event => {
     event.preventDefault();
-    // setClientId();
     const currentClientId = event.target.getAttribute("id");
     if (showProfileState && clientId === currentClientId) {
       //set the get attribute
@@ -25,7 +24,6 @@ const SearchResults = props => {
     */
   };
 
-  // console.log("p results",props.results)
   return (
     <div>
       <table className="table table-hover">

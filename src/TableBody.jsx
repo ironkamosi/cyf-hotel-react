@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import moment from "moment";
 import diff from "moment";
-// import CustomerProfile from "./CustomerProfile";
 
-// table body
 const TableBody = props => {
-  // console.log("table", props);
   const element = props.element;
-  // console.log("p element", props.element.id);
   const [highlight, setHighlight] = useState("false");
 
   const colourRow = () => {
@@ -17,7 +13,6 @@ const TableBody = props => {
   let enter = moment(element.checkInDate);
   let exit = moment(element.checkOutDate);
   let totalNumDays = exit.diff(enter, "days");
-  // <CustomerProfile clientId={clientId} />;
 
   return (
     <tbody>

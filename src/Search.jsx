@@ -6,13 +6,11 @@ const Search = props => {
 
   const handleSearchInput = event => {
     setSearchInput(event.target.value);
-    // console.log(searchInput);
   };
 
   function handleSubmit(event) {
     event.preventDefault();
     props.search(searchInput); // calling the search function here passing it from booking
-    // console.log(searchInput);
   }
   return (
     <div className="search">

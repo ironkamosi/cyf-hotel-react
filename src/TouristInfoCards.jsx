@@ -1,9 +1,6 @@
 import React from "react";
-// import "./App.css";
 
 const TouristInfoCards = props => {
-  // console.log(props)
-
   return (
     <div className="card-container">
       {props.touristData.map((element, index) => {
